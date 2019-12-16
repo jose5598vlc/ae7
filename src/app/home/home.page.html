@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      QuickTrade App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+<img [src] = "ruta1"/>
+
+<ion-list>
+    <ion-item>
+        <ion-label>Categoría</ion-label>
+        <ion-select [(ngModel)] = "Categoria">
+        <ion-select-option value="tecno">Técnologia</ion-select-option>
+        <ion-select-option value="hogar">Hogar</ion-select-option>
+        <ion-select-option value="inmo">Inmobilaria</ion-select-option>
+        <ion-select-option value="motor">Motor</ion-select-option>
+    </ion-select>
+</ion-item>
+
+
+
+    
+
+    <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Descripción</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Precio</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+
+
+
+         <div *ngIf = "Categoria == 'motor'">
+
+         <ion-item>
+  
+        <ion-select placeholder="Tipo Vehículo">
+          <ion-select-option value="c">Coche</ion-select-option>
+          <ion-select-option value="m">Moto</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Introduce KM</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Introduce año</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </div>
+
+
+        <div *ngIf = "Categoria == 'inmo'">
+
+          <ion-item>
+              <ion-label position="floating">Introduce los metros cuadrados de la vivienda</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Introduce el numero de baños y habitaciones</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label position="floating">Introduce localidad</ion-label>
+                  <ion-input></ion-input>
+                </ion-item>
+
+              </div>
+
+  
+
+              <div *ngIf = "Categoria == 'tecno'">
+
+                <ion-item>
+                    <ion-select placeholder="Estado Producto">
+                      <ion-select-option value="u">Usado</ion-select-option>
+                      <ion-select-option value="p">Perfecto Estado</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+
+                </div>
+
+
+              </ion-list>
+
+              </ion-content>
+              
+
+
+
+
+
+
