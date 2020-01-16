@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { IProducto, IMotor, Inmobiliaria, ITecnologia } from 'src/app/interfaces';
 import { ToastController } from '@ionic/angular';
+import { ProductoService } from '../src/app/services/src/app/services/src/app/services/productos.services';
 
 
 
@@ -26,43 +27,20 @@ export class HomePage {
   ruta1 : string  = "../../assets/icon/1.jpg";
   width : number = 20;
 
-  productos: (IProducto|IMotor|Inmobiliaria|ITecnologia)[] = [
-{
-  "id": 1,
-  "nombre": "Lamborghini Huracán Performante",
-  "descripcion": "Vehiculo deportivo de la legendaria escuderia italiana",
-  "precio" : 350000.00,
-  "km": 0,
-  "año": 2018,
-  "tipo": "c",
-}, 
-{
+  productos: (IProducto|IMotor|Inmobiliaria|ITecnologia)[];
 
-  "id": 2,
-  "nombre": "IPhone 11 Pro 6GB 512GB",
-  "descripcion": "Ultimo modelo de la marca Apple",
-  "precio": 1299.00,
-
-},
-
-{
-  "id": 3,
-  "nombre": "Casa Gold Resort Golf and Spa",
-  "descripción": "Casa de lujo a las afueras de california, más de 2,5km2 de vivienda",
-  "precio": 1250000.00,
-  "m2": 2500.00,
-  "nºhab": 8,
-  "localidad": "Santa Monica, California"
-}
-
-  ];
 
 
   Categoria : string = "";
 
-  constructor(private _toastCtr: ToastController) { 
+  constructor(private _toastCtr: ToastController, private _productoService: ProductoService) { 
+    
 
   } 
+
+  ngOnInit() {
+    this.productos = this._productoService.getProducto();
+  }
 
   async presentToast() {
     const toast = await this._toastCtr.create({
@@ -116,6 +94,7 @@ export class HomePage {
         let inmobiliaria : Inmobiliaria ={
           "id": this.productos.length +1,
           "nombre": this.nombre,
+          "descripcion": this.descripcion,
           "precio": this.precio,
           "m2": this.m2,
           "nºhab": this.nºhab,
@@ -164,7 +143,7 @@ export class HomePage {
         this.productos.push(hogar);
         this.presentToast();
         //this.id++;
-        console.log("Producto: " + this.nombre + " introducido con éxito dentro de la categoría hogar" + this.productos + " " + this.id + " " + this.precio);
+        console.log("Producto: " + this.nombre + " introducido con éxito dentro de la categoría hogar" + this.productos + " " + this.productos.length + " " + this.precio);
         console.log(this.productos);
 
       }

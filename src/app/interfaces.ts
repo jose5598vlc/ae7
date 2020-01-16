@@ -3,6 +3,7 @@ export interface IProducto{
 "id": number,
 "nombre": string,
 "descripcion": string,
+"precio": number,
     
 }
 
@@ -29,7 +30,7 @@ export interface ITecnologia{
 export interface Inmobiliaria{
     "id": number,
     "nombre": string,
-    "descripción": string,
+    "descripcion": string,
     "precio": number,
     "m2": number,
     "nºhab": number,

@@ -93,6 +93,16 @@
                 </div>
 
               </ion-list>
+
+
+              <ion-card-content>
+
+          <ion-label>Descripción: </ion-label>
+                {{item.descripcion}}
+
+                <ion-button expand="block" [routerLink]="['/details',item.id]" routerDirection="forward">details</ion-button>
+
+              </ion-card-content>
               
               </ion-content>
               
